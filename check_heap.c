@@ -1,8 +1,9 @@
 
-#include "umalloc.h"
+#include "check_heap.h"
 
 //Place any variables needed here from umalloc.c as an extern.
 extern mem_block_header_t *free_head;
+heap_order ord;
 
 /*
  * check_heap -  used to check that the heap is still in a consistent state.
@@ -26,6 +27,7 @@ int check_heap() {
     // Example heap check:
     // Check that all blocks in the free list are marked free.
     // If a block is marked allocated, return -1.
+    ord = ORD_OTHER; // Replace with your chosen free list ordering scheme
     /*
         mem_block_header_t *cur = free_head;
         while (cur) {
